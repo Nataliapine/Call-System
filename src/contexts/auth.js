@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import firebase  from "../services/firebaseConnection";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext({});
 
@@ -24,7 +25,7 @@ useEffect(() => {
     async function signIn(email, password) {
         setLoadingAuth(true);
         await firebase.auth().signInWithEmailAndPassword(email, password)
-        .then( async(value)=> {
+        .then(async (value)=> {
             let uid = value.user.uid;
 
             const userProfile = await firebase.firestore().collection('users')
@@ -40,10 +41,13 @@ useEffect(() => {
             setUser(data);
             storageUser(data);
             setLoadingAuth(false);
+            toast.success('Welcome Back!')
         })
         .catch((error)=> {
             console.log(error);
+            toast.error('Oops! Something went wrong, please try later!');
             setLoadingAuth(false);
+            
         })
     }
 
@@ -70,11 +74,14 @@ useEffect(() => {
                 setUser(data);
                 storageUser(data);
                 setLoadingAuth(false);
+                toast.success('Welcome to the App')
             })
         })
         .catch((error)=> {
             console.log(error);
+            toast.error('Oops! Something went wrong, please try later!');
             setLoadingAuth(false);
+            
         })
     }
 
@@ -90,7 +97,8 @@ useEffect(() => {
 
 
     return(
-        <AuthContext.Provider value={{ 
+        <AuthContext.Provider 
+        value={{ 
         signed: !!user,
          user,
          loading,
