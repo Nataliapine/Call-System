@@ -22,6 +22,7 @@ useEffect(() => {
     loadStorage();
 }, [])
 
+    //Fazendo login do usuario
     async function signIn(email, password) {
         setLoadingAuth(true);
         await firebase.auth().signInWithEmailAndPassword(email, password)
@@ -51,6 +52,7 @@ useEffect(() => {
         })
     }
 
+    //Cadastrando um novo usuario
     async function signUp(email, password, name) {
         setLoadingAuth(true);
         
@@ -105,7 +107,9 @@ useEffect(() => {
          signUp,
          signOut,
          signIn,
-         loadingAuth
+         loadingAuth,
+         setUser,
+         storageUser
          }} >
             {children}
         </AuthContext.Provider>

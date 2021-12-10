@@ -3,7 +3,11 @@
     .card {
         width: 90%;
         margin: 0 auto;
-        padding-top: 50px;
+        display: inline-block;
+
+        div {
+            margin: 0 0 20px 20px;
+        }
 
         .design {
             display: inline-block;
@@ -11,6 +15,7 @@
             background: #0000A3;
             height: 420px;
             padding: 10px;
+            margin: 50px auto;
 
             img {
                 max-width: 100%;
@@ -23,7 +28,7 @@
             height: 420px;
             padding: 10px;
             vertical-align: bottom;
-            //margin-top: 70px;
+            margin: 50px auto;
 
             form {
                 margin-top: 70px;
@@ -42,6 +47,7 @@
                 color: #4B4848;
                 border-color: transparent;
                 font-family: Roboto;
+                width: 100%;
             }
             .password {
                 margin-top: 20px;

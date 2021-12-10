@@ -22,17 +22,20 @@ export default function SignUp() {
     return(
         <div className="container">
             <div className="card">
+            <div> 
+                <h1>Create Account</h1>
                 <div className="design">
-                    <img src={ImgDesign} alt="design" />
-                </div>
-                <div className="form">
-                    <form onSubmit={handleSubmit}>
-                        <input className="name" type="text" placeholder="Natália Santos" value={name} onChange={(e) => setName(e.target.value)}  />
-                        <input type="text" placeholder="name@mail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input className="password" type="password" placeholder="******"  value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <button type="submit">{loadingAuth ? 'Carregando...' : 'Cadastrar'}</button>
-                    </form>
-                    <Link to="/">Already have an account</Link>
+                        <img src={ImgDesign} alt="design" />
+                    </div>
+                    <div className="form">
+                        <form onSubmit={handleSubmit}>
+                            <input className="name" type="text" placeholder="Natália Santos" value={name} onChange={(e) => setName(e.target.value)}  />
+                            <input type="text" placeholder="name@mail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input className="password" type="password" placeholder="******"  value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <button type="submit">{loadingAuth ? 'Carregando...' : 'Cadastrar'}</button>
+                        </form>
+                        <Link to="/">Already have an account</Link>
+                    </div>
                 </div>
             </div>
             

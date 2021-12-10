@@ -3,17 +3,31 @@
     .card {
         width: 90%;
         margin: 0 auto;
-        padding-top: 60px;
+        display: inline-block;
+        margin-top: 20px;
 
+        div {
+            margin: 0 0 20px 20px;
+        }
+        h1 {
+            text-align: center;
+            position: relative;
+            top: 118px;
+            color: #1d94ef;
+            left: -10px;
+            text-transform: uppercase;
+        }
         .design {
             display: inline-block;
             width: 47%;
             background: #0000A3;
             height: 420px;
             padding: 10px;
+            margin: 50px auto;
 
             img {
                 max-width: 100%;
+                padding-top: 90px;
             }
         }
         .form {
@@ -23,10 +37,11 @@
             height: 420px;
             padding: 10px;
             vertical-align: bottom;
-            margin-top: 70px;
+            margin: 50px auto;
 
             form {
-                margin-top: 70px;
+                margin-top: 90px;
+                width: 100%;
             }
             input {
                 display: block;
@@ -42,6 +57,7 @@
                 color: #4B4848;
                 border-color: transparent;
                 font-family: Roboto;
+                width: 100%;
             }
             .password {
                 margin-top: 20px;
@@ -70,6 +86,7 @@
                 letter-spacing: 0.03em;
                 text-transform: uppercase;
                 text-align: center;
+                width: 100%;
 
             }
 
@@ -88,5 +105,26 @@
             
         }
     }
+}
+
+@media screen and (max-width:760px) {
+    .container {
+        .card {
+            h1 {
+                top: 76px;
+            }
+            .design {
+                display: none;
+            }
+            .form {
+                width: 95%;
+                display: block;
+                margin-top: 0;
+                margin-right: 27px;
+            }
+        }
+        
+    }
+    
 }
 
