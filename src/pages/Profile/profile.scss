@@ -12,7 +12,6 @@ body {
         background: #fff;
         box-shadow: 0px 1px 2px rgba(0, 0, 163, 0.25);
         width: 100%;
-        
 
         .form-profile {
             display: flex;
@@ -20,6 +19,7 @@ body {
             padding: 12px;
             max-width: 65%;
             margin: 16px 6px;
+            text-align: left;
         
             .label-avatar {
                 width: 280px;
