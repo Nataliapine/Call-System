@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.container {
+.title {
     width: 100%;
     max-width: 100%;
     padding-left: 90px;
@@ -19,7 +19,7 @@
 }
 
 @media only screen and (max-width: 700px) { 
-    .container {
+    .title {
         padding-left: 0;
     }
 }

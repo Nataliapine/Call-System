@@ -1,10 +1,11 @@
 import "./Title.scss";
 
-export default function Title() {
+export default function Title({children, name}) {
     return (
-        <div className="container">
+        <div className="title">
+        {children}
             <div className="card-body"> 
-                <h1>My Account</h1>
+                <h1>{name}</h1>
             </div>
         </div>
     )

@@ -31,7 +31,7 @@ export default function SignIn() {
                         <form onSubmit={handleSubmit}>
                             <input type="text" placeholder="E-mail" value={email} onChange={ (e) => setEmail(e.target.value)} />
                             <input className="password" type="password" placeholder="******" value={password} onChange={ (e) => setPassword(e.target.value) } />
-                            <button type="submit">{loadingAuth ? 'Carregando...' : 'Acessar'}</button>
+                            <button type="submit">{loadingAuth ? 'Loading...' : 'Login'}</button>
                         </form>
                         <Link to="/register">Create an Account</Link>
                     </div>
