@@ -14,10 +14,13 @@ export default function Profile() {
 
     const [ name, setName] = useState(user && user.name);
     const [ email, setEmail ] = useState(user && user.email);
-    const [ avatarUrl, setAvatarUrl ] = useState(user && user.avatarUrl);
+    const [ avatarurl, setAvatarUrl ] = useState(user && user.avataurl);
     const [ imgAvatar, setImgAvatar ] = useState(null);
 
     function handleFile(e) {
+      if(e.target.files[0]) {
+
+      
         const image = e.target.files[0];
         if( image.type === 'image/jpeg' || image.type === 'image/png') {
             setImgAvatar(image);
@@ -27,6 +30,7 @@ export default function Profile() {
             setImgAvatar(null);
             return null;
         }
+      }
     }
 
     async function handleUpload(){
@@ -98,7 +102,7 @@ export default function Profile() {
             <div className="content">
                 <Title name="My Profile"></Title>
             </div>
-            <div className="container-profile">
+            <div className="container">
                 <div className="card">
                     <form className="form-profile" onSubmit={handleSave}>
                         <label className="label-avatar">
@@ -106,10 +110,10 @@ export default function Profile() {
                                 <FiUpload></FiUpload>
                             </span>
                             <input type="file" accept="image/*" onChange={handleFile} />
-                            { avatarUrl === null ?
+                            { avatarurl === null ?
                                 <img src={avatar} width="250" height="250" alt="profile" />
                                 :
-                                <img src={avatarUrl} width="250" height="250" alt="profile" />
+                                <img src={avatarurl} width="250" height="250" alt="profile" />
                             }
                         </label>
                         

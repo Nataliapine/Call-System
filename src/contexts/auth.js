@@ -34,7 +34,7 @@ useEffect(() => {
 
             let data = {
                 uid: uid,
-                nome: userProfile.data().nome,
+                name: userProfile.data().name,
                 avataurl: userProfile.data().avataurl,
                 email: value.user.email
             };
