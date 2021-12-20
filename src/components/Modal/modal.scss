@@ -1,0 +1,59 @@
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: (0,0,0,0,0.5);
+    z-index: 99;
+    display: block;
+    
+    .container-modal {
+        position: fixed;
+        max-width: 600px;
+        top: 15%;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        padding: 4em  2em;
+        background: #fff;
+        box-shadow: 0 0 0 20px (0, 0, 0, 0.6);
+    }
+    .close {
+        background: #0000A3;
+        border: 0;
+        color: #fff;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .close svg {
+        margin-right: 5px;
+    }
+
+    div {
+        h2 {
+            font-size: 2em;
+            margin-bottom: 1.2em;
+        }
+
+        .row {
+            margin-bottom: 1em;
+
+            span {
+                font-weight: bold;
+                font-size: 1.2em;
+                color: #121212;
+            }
+        }
+    }
+
+    p {
+        white-space: pre-wrap;
+        padding-top: 1em;
+    }
+}
