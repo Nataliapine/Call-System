@@ -14,7 +14,7 @@ export default function Profile() {
 
     const [ name, setName] = useState(user && user.name);
     const [ email, setEmail ] = useState(user && user.email);
-    const [ avatarurl, setAvatarUrl ] = useState(user && user.avataurl);
+    const [ avataurl, setAvatarUrl ] = useState(user && user.avataurl);
     const [ imgAvatar, setImgAvatar ] = useState(null);
 
     function handleFile(e) {
@@ -50,14 +50,14 @@ export default function Profile() {
             await firebase.firestore().collection('users')
             .doc(user.uid)
             .update({
-              avatarUrl: urlFoto,
-              nome: name
+              avataurl: urlFoto,
+              name: name
             })
             .then(()=>{
               let data = {
                 ...user,
-                avatarUrl: urlFoto,
-                nome: name
+                avataurl: urlFoto,
+                name: name
               }; 
               setUser(data);
               storageUser(data);
@@ -77,12 +77,12 @@ export default function Profile() {
           await firebase.firestore().collection('users')
           .doc(user.uid)
           .update({
-            nome: name
+            name: name
           })
           .then(()=>{
             let data = {
               ...user,
-              nome: name
+              name: name
             };
             setUser(data);
             storageUser(data);
@@ -110,10 +110,10 @@ export default function Profile() {
                                 <FiUpload></FiUpload>
                             </span>
                             <input type="file" accept="image/*" onChange={handleFile} />
-                            { avatarurl === null ?
+                            { avataurl === null ?
                                 <img src={avatar} width="250" height="250" alt="profile" />
                                 :
-                                <img src={avatarurl} width="250" height="250" alt="profile" />
+                                <img src={avataurl} width="250" height="250" alt="profile" />
                             }
                         </label>
                         
