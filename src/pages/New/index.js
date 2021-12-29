@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import firebase from '../../services/firebaseConnection';
+import { useHistory, useParams } from 'react-router-dom';
 import './new.scss';
 import { toast } from 'react-toastify';
 
@@ -9,6 +10,9 @@ import { AuthContext } from '../../contexts/auth';
 
 export default function New() {
 
+    const { id } = useParams();
+    const  history  = useHistory();
+
     const [ loadCustomers, setLoadCustomers ] = useState(true);
     const [ customers, setCustomers ] = useState([]);
     const [ customerSelected, setCustomerSelected ] = useState(0);
@@ -16,6 +20,7 @@ export default function New() {
     const [ subject, setSubject ] = useState('Suport');
     const [ status, setStatus ] = useState('open');
     const [ comment, setComment ] = useState('');
+    const [ idCustomer, setIdCustomer ] = useState('false');
 
     const { user } = useContext(AuthContext);
 
@@ -40,18 +45,65 @@ export default function New() {
                 }
                 setCustomers(lista);
                 setLoadCustomers(false);
+
+                if(id) {
+                    loadId(lista);
+                }
             })
             .catch((error)=> {
-                console.log('Something went wrong!');
+                console.log('Something went wrong!', error);
                 setLoadCustomers(false);
-                setCustomers([ { id:'1', nomeFantasia:''} ]);
+                setCustomers([ { id:'1', companyName:''} ]);
             })
         }
         loadCustomers();
-    },[]);
+    },[id]);
+
+    async function loadId(lista) {
+        await firebase.firestore().collection('calls').doc(id)
+        .get()
+        .then((snapshot) => {
+            setSubject(snapshot.data().subject);
+            setStatus(snapshot.data().status);
+            setComment(snapshot.data().comment)
+
+            let index = lista.findIndex(item => item.id === snapshot.data().clientId);
+            setCustomerSelected(index);
+            setIdCustomer(true);
+        })
+        .catch((err) => {
+            console.log('Id Error!', err);
+            setIdCustomer(false);
+        })
+    }
 
     async function handleRegister(e) {
         e.preventDefault();
+
+        if(idCustomer){
+            await firebase.firestore().collection('calls')
+            .doc(id)
+            .update({
+                client: customers[customerSelected].companyName,
+                clientId: customers[customerSelected].id,
+                subject: subject,
+                status: status,
+                comment: comment,
+                userId: user.uid
+            })
+            .then(() =>{
+                toast.success('successfully edited!');
+                setComment('');
+                setCustomerSelected(0);
+                history.push('/dashboard');
+            })
+            .catch((err) => {
+                toast.error('error when registering, try later');
+                console.log(err);
+            })
+
+            return;
+        }
         
         await firebase.firestore().collection('calls')
         .add({
@@ -68,12 +120,13 @@ export default function New() {
             setComment('');
             setCustomerSelected(0);
         })
-        .catch(()=> {
-            console.log('err')
+        .catch((err)=> {
             toast.error('error to register, please try again later.')
+            console.log('err')
         })
     }
 
+    
     function handleChangeSelect(e) {
         setSubject(e.target.value);
     }
@@ -83,8 +136,8 @@ export default function New() {
     }
 
     function handleChangeCustomers(e) {
-        console.log('INDEX DO CLIENTE SELECIONADO!', e.target.value);
-        console.log('selected customers', customers[e.target.value]);
+        // console.log('INDEX DO CLIENTE SELECIONADO!', e.target.value);
+        // console.log('selected customers', customers[e.target.value]);
         setCustomerSelected(e.target.value);
     }
 
