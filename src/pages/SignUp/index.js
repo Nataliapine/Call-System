@@ -20,7 +20,7 @@ export default function SignUp() {
     }
 
     return(
-        <div className="container">
+        <div className="container-signUp">
             <div className="card">
             <div> 
                 <h1>Create Account</h1>

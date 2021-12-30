@@ -1,5 +1,4 @@
 
-
 .sidebar {
     margin: 0;
     padding: 0%;
@@ -47,24 +46,20 @@
         padding: 6px;
         text-align: center;
         border-radius: 6px;
+
+        button:hover {
+            background: #FFD53D;
+            color: #4B4848;
+        }
     } 
-    button:hover {
-        background: #FFD53D;
-        color: #4B4848;
-    }
+    
 }
 
-
-@media only screen and (max-width: 700px) and (min-width:400px) {  
-    .sidebar button {
-        float: right;
-    }
-}
 
 @media only screen and (max-width: 700px) {
     .sidebar {
         width: 100%;
-        height: auto;
+        height: 146px;
         position: relative;
 
         img{
@@ -72,30 +67,28 @@
         }
         a {
             float: left;
-            padding: 10px;
-
-            svg {
-                display: none;
-            }   
+            padding: 10px; 
         }
+        
         button {
             margin: 10px;
+            float: right;
+            position: relative;
+            top: -132px;
+
+            svg {
+                display: inline-block;
+            } 
         }
-    }
-    
+    } 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
     .sidebar {
         a {
             text-align: center;
             float: none;
-
-            svg {
-                display: none;
-            }
         }
-
     }
     
 }

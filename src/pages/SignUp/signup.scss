@@ -1,4 +1,4 @@
-.container {
+.container-signUp {
     padding-left: 0px ;
     height: 100%;
     .card {
@@ -28,6 +28,9 @@
 
             img {
                 max-width: 100%;
+                width: 384px;
+                display: block;
+                margin: 0 auto;
                 padding-top: 90px;
             }
         }
@@ -108,7 +111,7 @@
     }
 }
 
-@media screen and (max-width:760px) {
+@media screen and (max-width:600px) {
     .container-signUp {
         .card {
             h1 {
@@ -124,8 +127,5 @@
                 margin-right: 27px;
             }
         }
-        
     }
-    
 }
-
