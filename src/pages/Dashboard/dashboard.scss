@@ -18,6 +18,11 @@
         position: absolute;
         top: 94px;
         right: 86px;
+
+        .new-table:hover {
+            background: #0000A3;
+            color: white;
+        }
         
         svg {
             margin-left: 6px;
@@ -42,7 +47,6 @@
             line-height: 4;
             font-weight: 500;
             transition: ease-in 0.2s;
-            
 
             svg {
                 margin-left: 6px;
@@ -168,17 +172,10 @@
         
     }
 }
-// @media screen and (min-width: 769px) and (max-width: 800px) {
-//     .container {
-//         .new-table {
-//             right: 50px;
-//         }
-//     }
-// }
+
 
 @media screen and (max-width:700px) {
-    .container {
-       
+    .container { 
         .new-table{
             top: 245px;
             right: 18px;
