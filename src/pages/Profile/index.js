@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { FiUpload } from 'react-icons/fi';
 import Header from '../../components/Header';
 import Title from '../../components/Title';
+import Footer from '../../components/Footer';
 import avatar from '../../assets/profile-empty.png';
 
 import firebase from '../../services/firebaseConnection';
@@ -124,7 +125,9 @@ export default function Profile() {
                         <button className="save-btn" type="submit">Save</button>
                     </form>
                 </div>
+
             </div>
+            <Footer />
         </div>
     )
 }

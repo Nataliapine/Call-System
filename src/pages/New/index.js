@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 import Header from '../../components/Header';
 import Title from '../../components/Title';
+import Footer from '../../components/Footer';
 import { AuthContext } from '../../contexts/auth';
 
 export default function New() {
@@ -20,7 +21,7 @@ export default function New() {
     const [ subject, setSubject ] = useState('Suport');
     const [ status, setStatus ] = useState('open');
     const [ comment, setComment ] = useState('');
-    const [ idCustomer, setIdCustomer ] = useState('false');
+    const [ idCustomer, setIdCustomer ] = useState(false);
 
     const { user } = useContext(AuthContext);
 
@@ -93,8 +94,8 @@ export default function New() {
             })
             .then(() =>{
                 toast.success('successfully edited!');
-                setComment('');
                 setCustomerSelected(0);
+                setComment('');
                 history.push('/dashboard');
             })
             .catch((err) => {
@@ -189,7 +190,7 @@ export default function New() {
                     </form>
                 </div>
             </div>
-        
+            <Footer />
             
         </div>
     )

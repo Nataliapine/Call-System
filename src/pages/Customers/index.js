@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from '../../components/Header';
 import Title from '../../components/Title';
+import Footer from '../../components/Footer';
 import firebase from '../../services/firebaseConnection';
 import { toast } from 'react-toastify';
 
@@ -55,6 +56,7 @@ export default function Customers() {
                     </form>
                 </div>   
             </div>
+            <Footer />
         </div>
     )
 } 

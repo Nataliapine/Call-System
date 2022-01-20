@@ -4,6 +4,7 @@ import "./dashboard.scss";
 import Header from '../../components/Header';
 import Title from "../../components/Title";
 import Modal from "../../components/Modal";
+import Footer from '../../components/Footer';
 import { Link } from "react-router-dom";
 import { FiEdit2, FiPlus, FiSearch } from 'react-icons/fi';
 import firebase from '../../services/firebaseConnection';
@@ -175,6 +176,7 @@ export default function Dashboard() {
 
                 />
             )}
+            <Footer />
             
         </div>
     )
